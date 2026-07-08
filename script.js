@@ -1,503 +1,479 @@
+// ===================================
+// JAIPRIJITHA N PORTFOLIO JAVASCRIPT
+// ===================================
 
-<!-- ================= SKILLS SECTION ================= -->
 
+// ================================
+// Mobile Menu Toggle
+// ================================
 
-<section id="skills" class="skills fade">
 
+const menuToggle = document.getElementById("menu-toggle");
 
-<h2>
-Technical Skills
-</h2>
+const navLinks = document.getElementById("nav-links");
 
 
+menuToggle.addEventListener("click", () => {
 
-<div class="skills-container">
 
+    navLinks.classList.toggle("active");
 
-<div class="skill-card">
 
-<i class="devicon-python-plain colored"></i>
+    if(navLinks.classList.contains("active")){
 
-<span>
-Python
-</span>
+        menuToggle.innerHTML = "✕";
 
-</div>
+    }
 
+    else{
 
+        menuToggle.innerHTML = "☰";
 
-<div class="skill-card">
+    }
 
-<i class="devicon-mysql-plain colored"></i>
 
-<span>
-SQL
-</span>
+});
 
-</div>
 
 
+// ================================
+// Close Menu After Click
+// ================================
 
-<div class="skill-card">
 
-<i class="fas fa-chart-line"></i>
+const navItems = document.querySelectorAll(".nav-links a");
 
-<span>
-Power BI
-</span>
 
-</div>
+navItems.forEach(item => {
 
 
+    item.addEventListener("click",()=>{
 
-<div class="skill-card">
 
-<i class="fas fa-file-excel"></i>
+        navLinks.classList.remove("active");
 
-<span>
-Excel
-</span>
+        menuToggle.innerHTML="☰";
 
-</div>
 
+    });
 
 
-<div class="skill-card">
+});
 
-<i class="devicon-pandas-original"></i>
 
-<span>
-Pandas
-</span>
 
-</div>
 
+// ================================
+// Smooth Scrolling
+// ================================
 
 
-<div class="skill-card">
+document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-<i class="devicon-numpy-original"></i>
 
-<span>
-NumPy
-</span>
+    link.addEventListener("click",function(e){
 
-</div>
 
+        e.preventDefault();
 
 
-<div class="skill-card">
+        const section =
+        document.querySelector(
+            this.getAttribute("href")
+        );
 
-<i class="fas fa-chart-bar"></i>
 
-<span>
-Matplotlib
-</span>
+        if(section){
 
-</div>
 
+            section.scrollIntoView({
 
+                behavior:"smooth"
 
-<div class="skill-card">
+            });
 
-<i class="fas fa-brain"></i>
 
-<span>
-Machine Learning
-</span>
+        }
 
-</div>
 
+    });
 
 
-<div class="skill-card">
+});
 
-<i class="fas fa-database"></i>
 
-<span>
-MySQL
-</span>
 
-</div>
 
+// ================================
+// Typing Animation
+// ================================
 
 
-<div class="skill-card">
+const typingText =
+[
+    "Data Analyst",
+    "AI ML Engineer",
+    "Research Analyst"
+];
 
-<i class="fas fa-chart-pie"></i>
 
-<span>
-EDA
-</span>
+const typing =
+document.getElementById("typing");
 
-</div>
 
+let textIndex = 0;
 
+let charIndex = 0;
 
-<div class="skill-card">
+let deleting = false;
 
-<i class="fas fa-book"></i>
 
-<span>
-Statistics
-</span>
 
-</div>
+function typeEffect(){
 
 
+    let currentText =
+    typingText[textIndex];
 
-<div class="skill-card">
 
-<i class="devicon-git-plain colored"></i>
 
-<span>
-Git
-</span>
+    if(!deleting){
 
-</div>
 
+        typing.innerHTML =
+        currentText.substring(0,charIndex+1);
 
 
-<div class="skill-card">
+        charIndex++;
 
-<i class="devicon-github-original"></i>
 
-<span>
-GitHub
-</span>
+        if(charIndex === currentText.length){
 
-</div>
 
+            deleting=true;
 
 
-<div class="skill-card">
+            setTimeout(typeEffect,1500);
 
-<i class="fas fa-laptop-code"></i>
 
-<span>
-Jupyter Notebook
-</span>
+            return;
 
-</div>
 
+        }
 
 
-</div>
+    }
 
+    else{
 
-</section>
 
+        typing.innerHTML =
+        currentText.substring(0,charIndex-1);
 
 
+        charIndex--;
 
 
-<!-- ================= EXPERIENCE SECTION ================= -->
+        if(charIndex===0){
 
 
-<section id="experience" class="about fade">
+            deleting=false;
 
 
-<h2>
-Professional Experience
-</h2>
+            textIndex++;
 
 
+            if(textIndex >= typingText.length){
 
-<div class="about-container">
+                textIndex=0;
 
+            }
 
-<div class="info-box">
 
+        }
 
-<i class="fas fa-briefcase"></i>
 
+    }
 
-<h3>
-Research Analyst
-</h3>
 
 
-<p>
-<strong>
-Cyberbots
-</strong>
-</p>
+    setTimeout(typeEffect,100);
 
 
-<p>
+}
 
-Worked on AI and IoT based research projects involving
-data collection, preprocessing, analysis and technical
-documentation.
 
-</p>
 
+typeEffect();
 
-<p>
 
-Assisted in developing intelligent automation solutions
-and research-based implementations.
 
-</p>
 
 
+// ================================
+// Scroll Progress Bar
+// ================================
 
-</div>
 
+window.addEventListener("scroll",()=>{
 
-</div>
 
+    const scrollTop =
+    document.documentElement.scrollTop;
 
-</section>
 
+    const height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
 
 
 
+    const progress =
+    (scrollTop / height) * 100;
 
-<!-- ================= PROJECT SECTION ================= -->
 
 
-<section id="projects" class="projects fade">
+    document.getElementById(
+        "progress-bar"
+    ).style.width =
+    progress + "%";
 
 
-<h2>
-My Projects
-</h2>
+});
 
 
+// ================================
+// Fade In Animation On Scroll
+// ================================
 
-<div class="project-container">
 
+const fadeElements =
+document.querySelectorAll(".fade");
 
 
-<!-- Project 1 -->
 
+function revealOnScroll(){
 
-<div class="project-card">
 
+    fadeElements.forEach(element=>{
 
-<h3>
-Underwater Mine Detection using Machine Learning
-</h3>
 
+        const position =
+        element.getBoundingClientRect().top;
 
 
-<p>
+        const screenHeight =
+        window.innerHeight;
 
-Developed a machine learning model to classify underwater
-mines using sonar signal datasets. Performed preprocessing,
-EDA, feature engineering and evaluated multiple ML algorithms.
 
-</p>
 
+        if(position < screenHeight - 100){
 
 
-<h4>
-Technologies
-</h4>
+            element.classList.add("show");
 
 
+        }
 
-<div class="tech">
 
+    });
 
-<span>
-Python
-</span>
 
+}
 
-<span>
-Pandas
-</span>
 
 
-<span>
-Scikit-Learn
-</span>
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
 
 
-<span>
-Random Forest
-</span>
+revealOnScroll();
 
 
-<span>
-SVM
-</span>
 
 
-</div>
 
+// ================================
+// Active Navbar Highlight
+// ================================
 
 
-<div class="project-buttons">
+const sections =
+document.querySelectorAll("section");
 
 
-<a href="https://github.com/Jaiprajitha"
-class="github"
-target="_blank">
+const navLinksList =
+document.querySelectorAll(".nav-links a");
 
-GitHub
 
-</a>
 
+window.addEventListener("scroll",()=>{
 
-</div>
 
+    let current = "";
 
 
-</div>
 
+    sections.forEach(section=>{
 
 
+        const sectionTop =
+        section.offsetTop - 150;
 
 
-<!-- Project 2 -->
 
+        if(window.scrollY >= sectionTop){
 
-<div class="project-card">
 
+            current =
+            section.getAttribute("id");
 
-<h3>
-Lung Cancer Prediction
-</h3>
 
+        }
 
 
-<p>
+    });
 
-Built a predictive machine learning model using healthcare
-datasets with preprocessing, exploratory data analysis,
-feature engineering and model evaluation.
 
-</p>
 
+    navLinksList.forEach(link=>{
 
 
-<h4>
-Technologies
-</h4>
+        link.classList.remove("active");
 
 
 
-<div class="tech">
+        if(
+            link.getAttribute("href")
+            === "#" + current
+        ){
 
 
-<span>
-Python
-</span>
+            link.classList.add("active");
 
 
-<span>
-NumPy
-</span>
+        }
 
 
-<span>
-Pandas
-</span>
+    });
 
 
-<span>
-Scikit-Learn
-</span>
 
+});
 
-</div>
 
 
 
-<div class="project-buttons">
 
+// ================================
+// EmailJS Contact Form
+// ================================
 
-<a href="https://github.com/Jaiprajitha"
-class="github"
-target="_blank">
 
-GitHub
 
-</a>
+emailjs.init(
+    "9QF9j-sJ8HgXwVVSF"
+);
 
 
-</div>
 
+const contactForm =
+document.getElementById("contact-form");
 
 
-</div>
 
+if(contactForm){
 
 
+contactForm.addEventListener(
+"submit",
+function(event){
 
-<!-- Project 3 -->
 
+    event.preventDefault();
 
-<div class="project-card">
 
 
-<h3>
-IoT Based Wireless Iron Box
-</h3>
+    emailjs.sendForm(
 
+        "service_g6v935l",
 
+        "template_0nwv5ld",
 
-<p>
+        this
 
-Developed an IoT-enabled wireless iron box prototype
-for temperature monitoring and energy-efficient operation.
 
-</p>
+    )
 
+    .then(()=>{
 
 
-<h4>
-Technologies
-</h4>
+        alert(
+            "Message Sent Successfully!"
+        );
 
 
+        contactForm.reset();
 
-<div class="tech">
 
+    })
 
-<span>
-IoT
-</span>
 
 
-<span>
-Sensors
-</span>
+    .catch(error=>{
 
 
-<span>
-Embedded Systems
-</span>
+        alert(
+            "Message Sending Failed!"
+        );
 
 
-</div>
+        console.log(error);
 
 
+    });
 
-<div class="project-buttons">
 
 
-<a href="https://github.com/Jaiprajitha"
-class="github"
-target="_blank">
+});
 
-GitHub
 
-</a>
+}
 
 
-</div>
 
 
 
-</div>
+// ================================
+// Footer Dynamic Year
+// ================================
 
 
+const footer =
+document.querySelector("footer p");
 
-</div>
 
 
-</section>
+if(footer){
+
+
+footer.innerHTML =
+`© ${new Date().getFullYear()} JAIPRIJITHA N | Data Analyst Portfolio`;
+
+
+}
+
+
+
+
+
+// ================================
+// Console Message
+// ================================
+
+
+console.log(
+"JAIPRIJITHA Portfolio Loaded Successfully 🚀"
+);
