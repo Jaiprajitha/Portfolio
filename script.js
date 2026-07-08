@@ -1,505 +1,162 @@
 // ================================
 // Portfolio JavaScript
-// JAIPRIJITHA N
-// Data Analyst | AI & ML Engineer
 // ================================
 
-
-// ================================
-// Mobile Navigation
-// ================================
-
+// Select Elements
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 const navItems = document.querySelectorAll(".nav-links a");
 
+// ================================
+// Open / Close Mobile Menu
+// ================================
 
-menuToggle.addEventListener("click",()=>{
+menuToggle.addEventListener("click", () => {
 
     navLinks.classList.toggle("active");
 
-    if(navLinks.classList.contains("active")){
-
-        menuToggle.innerHTML="✕";
-
-    }
-    else{
-
-        menuToggle.innerHTML="☰";
-
+    if (navLinks.classList.contains("active")) {
+        menuToggle.innerHTML = "✕";
+    } else {
+        menuToggle.innerHTML = "☰";
     }
 
 });
 
+// ================================
+// Close Menu After Clicking a Link
+// ================================
 
-// Close menu after clicking link
+navItems.forEach(link => {
 
-navItems.forEach(link=>{
-
-    link.addEventListener("click",()=>{
+    link.addEventListener("click", () => {
 
         navLinks.classList.remove("active");
-
-        menuToggle.innerHTML="☰";
+        menuToggle.innerHTML = "☰";
 
     });
 
 });
 
+// ================================
+// Close Menu When Clicking Outside
+// ================================
 
-// Close menu outside click
+document.addEventListener("click", (event) => {
 
-document.addEventListener("click",(event)=>{
+    const isClickInsideNav = navLinks.contains(event.target);
+    const isClickOnMenu = menuToggle.contains(event.target);
 
-    const insideMenu = navLinks.contains(event.target);
-
-    const clickedButton = menuToggle.contains(event.target);
-
-
-    if(!insideMenu && !clickedButton){
+    if (!isClickInsideNav && !isClickOnMenu) {
 
         navLinks.classList.remove("active");
-
-        menuToggle.innerHTML="☰";
+        menuToggle.innerHTML = "☰";
 
     }
 
 });
-
-
 
 // ================================
 // Smooth Scroll
 // ================================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-
-    anchor.addEventListener("click",function(e){
+    anchor.addEventListener("click", function (e) {
 
         e.preventDefault();
 
+        const target = document.querySelector(this.getAttribute("href"));
 
-        const target=document.querySelector(
-            this.getAttribute("href")
-        );
-
-
-        if(target){
+        if (target) {
 
             target.scrollIntoView({
-
-                behavior:"smooth"
-
+                behavior: "smooth"
             });
 
         }
 
-
     });
-
 
 });
 
-
+console.log("Portfolio Loaded Successfully!");
 
 // ================================
-// Typing Effect
+// job title typing effect
 // ================================
 
-const roles=[
+const text = "Full Stack Java Developer";
+const typing = document.getElementById("typing");
 
-    "Data Analyst",
+let index = 0;
 
-    "AI & ML Engineer",
+function typeEffect(){
 
-    "Python Developer",
-
-    "Machine Learning Enthusiast"
-
-];
-
-
-const typing=document.getElementById("typing");
-
-
-let roleIndex=0;
-
-let charIndex=0;
-
-let deleting=false;
-
-
-
-function typingEffect(){
-
-
-    let currentRole=roles[roleIndex];
-
-
-    if(!deleting){
-
-
-        typing.textContent=
-        currentRole.substring(0,charIndex+1);
-
-
-        charIndex++;
-
-
-        if(charIndex===currentRole.length){
-
-
-            deleting=true;
-
-
-            setTimeout(typingEffect,1200);
-
-            return;
-
-        }
-
-
+    if(index < text.length){
+        typing.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect,100);
     }
-
-    else{
-
-
-        typing.textContent=
-        currentRole.substring(0,charIndex-1);
-
-
-        charIndex--;
-
-
-        if(charIndex===0){
-
-
-            deleting=false;
-
-
-            roleIndex++;
-
-
-            if(roleIndex===roles.length){
-
-                roleIndex=0;
-
-            }
-
-
-        }
-
-
-    }
-
-
-    setTimeout(
-
-        typingEffect,
-
-        deleting ? 60 : 120
-
-    );
-
-
 }
-
-
-typingEffect();
-
-
-// ================================
-// Scroll Progress Bar
-// ================================
-
+typeEffect();
 
 window.addEventListener("scroll",()=>{
 
+    const totalHeight=document.documentElement.scrollHeight-window.innerHeight;
 
-    const scrollTop=document.documentElement.scrollTop;
+    const progress=(window.scrollY/totalHeight)*100;
 
-
-    const height=
-
-    document.documentElement.scrollHeight -
-
-    document.documentElement.clientHeight;
-
-
-
-    const progress=(scrollTop/height)*100;
-
-
-
-    document.getElementById("progress-bar")
-    .style.width=progress+"%";
-
-
-});
- 
-/* =========================
-   Scroll Reveal Animation
-========================= */
-
-const revealElements = document.querySelectorAll(
-    ".project-card, .experience-card, .skill-card, .certificate-card"
-);
-
-
-const revealObserver = new IntersectionObserver(
-
-    (entries) => {
-
-        entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-
-                entry.target.classList.add("show");
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.15
-    }
-
-);
-
-
-revealElements.forEach(element => {
-
-    revealObserver.observe(element);
+    document.getElementById("progress-bar").style.width=progress+"%";
 
 });
 
+/* fade in effect for elements with class "fade" */
 
+const fadeElements=document.querySelectorAll(".fade");
 
-/* =========================
-   Active Navigation Highlight
-========================= */
+window.addEventListener("scroll",()=>{
 
-const sections = document.querySelectorAll("section");
-const navItems = document.querySelectorAll(".nav-links a");
+    fadeElements.forEach(element=>{
 
+        const position=element.getBoundingClientRect().top;
 
-window.addEventListener("scroll", () => {
+        const screenHeight=window.innerHeight;
 
+        if(position<screenHeight-100){
 
-    let current = "";
-
-
-    sections.forEach(section => {
-
-
-        const sectionTop = section.offsetTop - 150;
-
-        const sectionHeight = section.clientHeight;
-
-
-        if(window.scrollY >= sectionTop &&
-           window.scrollY < sectionTop + sectionHeight){
-
-            current = section.getAttribute("id");
+            element.classList.add("show");
 
         }
 
     });
 
+});
 
+emailjs.init("9QF9j-sJ8HgXwVVSF");
 
-    navItems.forEach(link => {
+const form = document.getElementById("contact-form");
 
+form.addEventListener("submit", function(e){
 
-        link.classList.remove("active");
+    e.preventDefault();
 
+    emailjs.sendForm(
+        "service_g6v935l",
+        "template_0nwv5ld",
+        this
+    ).then(function(){
 
-        if(link.getAttribute("href") === "#" + current){
+        alert("Message Sent Successfully!");
 
-            link.classList.add("active");
+        form.reset();
 
-        }
+    }).catch(function(error){
 
+        alert("Failed to Send Message");
+
+        console.log(error);
 
     });
 
-
 });
-
-
-
-/* =========================
-   Scroll To Top Button
-========================= */
-
-
-const topButton = document.createElement("button");
-
-topButton.innerHTML = "↑";
-
-topButton.className = "top-btn";
-
-document.body.appendChild(topButton);
-
-
-
-window.addEventListener("scroll", () => {
-
-
-    if(window.scrollY > 400){
-
-        topButton.style.display = "block";
-
-    }
-
-    else{
-
-        topButton.style.display = "none";
-
-    }
-
-
-});
-
-
-
-topButton.addEventListener("click", () => {
-
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-
-});
-
-
-
-/* =========================
-   Download Resume Button
-========================= */
-
-
-const resumeBtn = document.querySelector(".resume-btn");
-
-
-if(resumeBtn){
-
-
-    resumeBtn.addEventListener("click",()=>{
-
-
-        alert(
-            "Resume download started!"
-        );
-
-
-    });
-
-
-}
-
-
-
-/* =========================
-   Current Year Footer
-========================= */
-
-
-const footerYear = document.querySelector("#year");
-
-
-if(footerYear){
-
-
-    footerYear.textContent =
-    new Date().getFullYear();
-
-
-}
-
-
-
-/* =========================
-   Contact Form Validation
-========================= */
-
-
-const contactForm = document.querySelector("#contact-form");
-
-
-if(contactForm){
-
-
-contactForm.addEventListener("submit",(event)=>{
-
-
-    event.preventDefault();
-
-
-    const name =
-    document.querySelector("#name").value;
-
-
-    const email =
-    document.querySelector("#email").value;
-
-
-    const message =
-    document.querySelector("#message").value;
-
-
-
-    if(
-        name === "" ||
-        email === "" ||
-        message === ""
-    ){
-
-        alert(
-            "Please fill all fields"
-        );
-
-    }
-
-    else{
-
-        alert(
-            "Message sent successfully!"
-        );
-
-
-        contactForm.reset();
-
-    }
-
-
-});
-
-
-}
-
-
-
-/* =========================
-   Page Loading Animation
-========================= */
-
-
-window.addEventListener(
-    "load",
-    ()=>{
-
-        document.body.classList.add(
-            "loaded"
-        );
-
-    }
-);
