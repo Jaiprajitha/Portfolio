@@ -133,7 +133,7 @@ window.addEventListener("scroll",()=>{
 
 });
 
-emailjs.init("9QF9j-sJ8HgXwVVSF");
+emailjs.init("kYHTjIZjIOyq067Ji");
 
 const form = document.getElementById("contact-form");
 
@@ -142,8 +142,8 @@ form.addEventListener("submit", function(e){
     e.preventDefault();
 
     emailjs.sendForm(
-        "service_g6v935l",
-        "template_0nwv5ld",
+        "service_7twqotf",
+        "template_0pcgyp1",
         this
     ).then(function(){
 
