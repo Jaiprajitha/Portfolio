@@ -1,449 +1,62 @@
-/* =========================
-   Google Font
-========================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-
-/* =========================
-   Global Styles
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-
-body {
-
-    background: #081b29;
-    color: white;
-
+body{
+background:#f5f5f5;
+height:100vh;
+overflow:hidden;
 }
 
-
-/* =========================
-   Navigation
-========================= */
-
-
-header {
-
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background: #06141f;
-
+#split{
+display:flex;
+height:100vh;
 }
 
-
-nav {
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 10%;
-
+#left{
+background:#1e3a8a;
+color:white;
+padding:40px;
+overflow:auto;
+text-align:center;
 }
 
-
-.logo {
-
-    font-size: 25px;
-    color: #00abf0;
-
+#right{
+padding:40px;
+overflow:auto;
+background:white;
 }
 
-
-nav ul {
-
-    display: flex;
-    list-style: none;
-
+.gutter{
+background:#444;
+cursor:col-resize;
+width:8px;
 }
 
-
-nav ul li {
-
-    margin-left: 25px;
-
+.profile{
+width:170px;
+height:170px;
+border-radius:50%;
+margin-bottom:20px;
 }
 
-
-nav ul li a {
-
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-
+section{
+margin-bottom:40px;
 }
 
-
-nav ul li a:hover {
-
-    color: #00abf0;
-
+h2{
+color:#2563eb;
+margin-bottom:15px;
 }
 
-
-
-/* =========================
-   Home Section
-========================= */
-
-
-.home {
-
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 100px 10%;
-
+li{
+margin-bottom:10px;
 }
 
-
-.home-content {
-
-    max-width: 650px;
-
-}
-
-
-.home-content h1 {
-
-    font-size: 45px;
-
-}
-
-
-.home-content h1 span {
-
-    color: #00abf0;
-
-}
-
-
-.home-content h2 {
-
-    margin: 15px 0;
-    color: #00abf0;
-
-}
-
-
-.home-content p {
-
-    line-height: 1.8;
-    color: #ddd;
-
-}
-
-
-.btn {
-
-    display: inline-block;
-    margin-top: 25px;
-    padding: 12px 30px;
-    background: #00abf0;
-    color: black;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: 600;
-
-}
-
-
-.btn:hover {
-
-    background: white;
-
-}
-
-
-
-/* =========================
-   Common Section
-========================= */
-
-
-.section {
-
-    padding: 80px 10%;
-
-}
-
-
-.heading {
-
-    text-align: center;
-    font-size: 35px;
-    color: #00abf0;
-    margin-bottom: 40px;
-
-}
-
-
-
-/* =========================
-   About Section
-========================= */
-
-
-.about-container {
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 25px;
-
-}
-
-
-.about-card {
-
-    background: #102a3a;
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid #1c4055;
-
-}
-
-
-.about-card h3 {
-
-    color: #00abf0;
-    margin-bottom: 15px;
-
-}
-
-
-.about-card h4 {
-
-    margin: 10px 0;
-
-}
-
-
-.about-card p {
-
-    color: #ddd;
-    line-height: 1.7;
-
-}
-
-
-
-
-/* =========================
-   Cards
-========================= */
-
-
-.cards {
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 25px;
-
-}
-
-
-
-.card {
-
-    background: #102a3a;
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid #1c4055;
-    transition: 0.3s;
-
-}
-
-
-.card:hover {
-
-    transform: translateY(-8px);
-
-}
-
-
-
-.card h3 {
-
-    color:#00abf0;
-    margin-bottom:15px;
-
-}
-
-
-
-.card p {
-
-    color:#ddd;
-    line-height:1.7;
-
-}
-
-
-
-/* =========================
-   Contact Section
-========================= */
-
-
-.contact-box {
-
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    gap:40px;
-
-}
-
-
-
-.contact-info {
-
-    background:#102a3a;
-    padding:30px;
-    border-radius:15px;
-
-}
-
-
-
-.contact-info p {
-
-    margin:20px 0;
-    color:#ddd;
-
-}
-
-
-
-.contact-info i {
-
-    color:#00abf0;
-    margin-right:10px;
-
-}
-
-
-
-/* Form */
-
-
-form {
-
-    background:#102a3a;
-    padding:30px;
-    border-radius:15px;
-
-}
-
-
-
-form input,
-form textarea {
-
-
-    width:100%;
-    padding:12px;
-    margin-bottom:15px;
-    background:#081b29;
-    border:1px solid #345;
-    color:white;
-    border-radius:8px;
-
-}
-
-
-
-textarea {
-
-    height:120px;
-    resize:none;
-
-}
-
-
-
-form button {
-
-    padding:12px 30px;
-    border:none;
-    background:#00abf0;
-    color:black;
-    border-radius:25px;
-    cursor:pointer;
-    font-weight:600;
-
-}
-
-
-form button:hover {
-
-    background:white;
-
-}
-
-
-
-/* =========================
-   Footer
-========================= */
-
-
-footer {
-
-    text-align:center;
-    padding:20px;
-    background:#06141f;
-    color:#aaa;
-
-}
-
-
-
-/* =========================
-   Mobile Responsive
-========================= */
-
-
-@media(max-width:768px){
-
-
-nav {
-
-    flex-direction:column;
-
-}
-
-
-nav ul {
-
-    margin-top:15px;
-    flex-wrap:wrap;
-    justify-content:center;
-
-}
-
-
-.home-content h1 {
-
-    font-size:35px;
-
-}
-
-
-.section {
-
-    padding:70px 5%;
-
-}
-
-
+a{
+color:white;
+text-decoration:none;
 }
