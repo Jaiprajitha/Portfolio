@@ -1,479 +1,247 @@
-// ===================================
-// JAIPRIJITHA N PORTFOLIO JAVASCRIPT
-// ===================================
-
-
-// ================================
-// Mobile Menu Toggle
-// ================================
-
+// ======================================
+// Mobile Menu
+// ======================================
 
 const menuToggle = document.getElementById("menu-toggle");
-
 const navLinks = document.getElementById("nav-links");
-
 
 menuToggle.addEventListener("click", () => {
 
-
     navLinks.classList.toggle("active");
 
-
     if(navLinks.classList.contains("active")){
-
-        menuToggle.innerHTML = "✕";
-
+        menuToggle.innerHTML='<i class="fas fa-times"></i>';
     }
-
     else{
-
-        menuToggle.innerHTML = "☰";
-
+        menuToggle.innerHTML='<i class="fas fa-bars"></i>';
     }
-
 
 });
 
-
-
-// ================================
+// ======================================
 // Close Menu After Click
-// ================================
+// ======================================
 
+document.querySelectorAll(".nav-links a").forEach(link=>{
 
-const navItems = document.querySelectorAll(".nav-links a");
-
-
-navItems.forEach(item => {
-
-
-    item.addEventListener("click",()=>{
-
+    link.addEventListener("click",()=>{
 
         navLinks.classList.remove("active");
 
-        menuToggle.innerHTML="☰";
-
+        menuToggle.innerHTML='<i class="fas fa-bars"></i>';
 
     });
-
 
 });
 
 
+// ======================================
+// Typing Effect
+// ======================================
 
+const words=[
 
-// ================================
-// Smooth Scrolling
-// ================================
-
-
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-
-
-    link.addEventListener("click",function(e){
-
-
-        e.preventDefault();
-
-
-        const section =
-        document.querySelector(
-            this.getAttribute("href")
-        );
-
-
-        if(section){
-
-
-            section.scrollIntoView({
-
-                behavior:"smooth"
-
-            });
-
-
-        }
-
-
-    });
-
-
-});
-
-
-
-
-// ================================
-// Typing Animation
-// ================================
-
-
-const typingText =
-[
     "Data Analyst",
-    "AI ML Engineer",
-    "Research Analyst"
+
+    "AI & ML Engineer",
+
+    "Python Developer",
+
+    "Power BI Developer"
+
 ];
 
+let wordIndex=0;
+let charIndex=0;
+let isDeleting=false;
 
-const typing =
-document.getElementById("typing");
-
-
-let textIndex = 0;
-
-let charIndex = 0;
-
-let deleting = false;
-
-
+const typing=document.getElementById("typing");
 
 function typeEffect(){
 
+    const currentWord=words[wordIndex];
 
-    let currentText =
-    typingText[textIndex];
+    if(isDeleting){
 
-
-
-    if(!deleting){
-
-
-        typing.innerHTML =
-        currentText.substring(0,charIndex+1);
-
-
-        charIndex++;
-
-
-        if(charIndex === currentText.length){
-
-
-            deleting=true;
-
-
-            setTimeout(typeEffect,1500);
-
-
-            return;
-
-
-        }
-
+        typing.textContent=currentWord.substring(0,charIndex--);
 
     }
 
     else{
 
-
-        typing.innerHTML =
-        currentText.substring(0,charIndex-1);
-
-
-        charIndex--;
-
-
-        if(charIndex===0){
-
-
-            deleting=false;
-
-
-            textIndex++;
-
-
-            if(textIndex >= typingText.length){
-
-                textIndex=0;
-
-            }
-
-
-        }
-
+        typing.textContent=currentWord.substring(0,charIndex++);
 
     }
 
+    let speed=120;
 
+    if(!isDeleting && charIndex===currentWord.length+1){
 
-    setTimeout(typeEffect,100);
+        speed=1500;
 
+        isDeleting=true;
+
+    }
+
+    if(isDeleting && charIndex===0){
+
+        isDeleting=false;
+
+        wordIndex=(wordIndex+1)%words.length;
+
+    }
+
+    setTimeout(typeEffect,isDeleting?60:speed);
 
 }
-
-
 
 typeEffect();
 
 
+// ======================================
+// Smooth Scroll
+// ======================================
 
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
+    anchor.addEventListener("click",function(e){
 
-// ================================
-// Scroll Progress Bar
-// ================================
+        e.preventDefault();
 
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
 
-window.addEventListener("scroll",()=>{
+            behavior:"smooth"
 
+        });
 
-    const scrollTop =
-    document.documentElement.scrollTop;
-
-
-    const height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-
-
-
-    const progress =
-    (scrollTop / height) * 100;
-
-
-
-    document.getElementById(
-        "progress-bar"
-    ).style.width =
-    progress + "%";
-
+    });
 
 });
 
 
-// ================================
-// Fade In Animation On Scroll
-// ================================
-
-
-const fadeElements =
-document.querySelectorAll(".fade");
-
-
-
-function revealOnScroll(){
-
-
-    fadeElements.forEach(element=>{
-
-
-        const position =
-        element.getBoundingClientRect().top;
-
-
-        const screenHeight =
-        window.innerHeight;
-
-
-
-        if(position < screenHeight - 100){
-
-
-            element.classList.add("show");
-
-
-        }
-
-
-    });
-
-
-}
-
-
-
-window.addEventListener(
-    "scroll",
-    revealOnScroll
-);
-
-
-revealOnScroll();
-
-
-
-
-
-// ================================
-// Active Navbar Highlight
-// ================================
-
-
-const sections =
-document.querySelectorAll("section");
-
-
-const navLinksList =
-document.querySelectorAll(".nav-links a");
-
-
+// ======================================
+// Scroll Progress Bar
+// ======================================
 
 window.addEventListener("scroll",()=>{
 
+    const winScroll=document.documentElement.scrollTop;
 
-    let current = "";
+    const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+
+    const scrolled=(winScroll/height)*100;
+
+    document.getElementById("progress-bar").style.width=scrolled+"%";
+
+});
 
 
+// ======================================
+// Fade Animation
+// ======================================
+
+const observer=new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:.2
+});
+
+document.querySelectorAll("section").forEach(section=>{
+
+    section.classList.add("fade");
+
+    observer.observe(section);
+
+});
+
+
+// ======================================
+// Active Navigation
+// ======================================
+
+const sections=document.querySelectorAll("section");
+const navItems=document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll",()=>{
+
+    let current="";
 
     sections.forEach(section=>{
 
+        const sectionTop=section.offsetTop-120;
 
-        const sectionTop =
-        section.offsetTop - 150;
+        if(pageYOffset>=sectionTop){
 
-
-
-        if(window.scrollY >= sectionTop){
-
-
-            current =
-            section.getAttribute("id");
-
+            current=section.getAttribute("id");
 
         }
 
-
     });
 
-
-
-    navLinksList.forEach(link=>{
-
+    navItems.forEach(link=>{
 
         link.classList.remove("active");
 
-
-
-        if(
-            link.getAttribute("href")
-            === "#" + current
-        ){
-
+        if(link.getAttribute("href")==="#"+current){
 
             link.classList.add("active");
 
-
         }
 
-
     });
-
-
 
 });
 
 
+// ======================================
+// EmailJS
+// ======================================
 
+emailjs.init("YOUR_PUBLIC_KEY");
 
+const form=document.getElementById("contact-form");
 
-// ================================
-// EmailJS Contact Form
-// ================================
+form.addEventListener("submit",function(e){
 
-
-
-emailjs.init(
-    "9QF9j-sJ8HgXwVVSF"
-);
-
-
-
-const contactForm =
-document.getElementById("contact-form");
-
-
-
-if(contactForm){
-
-
-contactForm.addEventListener(
-"submit",
-function(event){
-
-
-    event.preventDefault();
-
-
+    e.preventDefault();
 
     emailjs.sendForm(
 
-        "service_g6v935l",
+        "YOUR_SERVICE_ID",
 
-        "template_0nwv5ld",
+        "YOUR_TEMPLATE_ID",
 
         this
 
+    ).then(()=>{
 
-    )
+        alert("Message Sent Successfully!");
 
-    .then(()=>{
+        form.reset();
 
+    }).catch((error)=>{
 
-        alert(
-            "Message Sent Successfully!"
-        );
-
-
-        contactForm.reset();
-
-
-    })
-
-
-
-    .catch(error=>{
-
-
-        alert(
-            "Message Sending Failed!"
-        );
-
+        alert("Message Failed!");
 
         console.log(error);
 
-
     });
-
-
 
 });
 
 
-}
-
-
-
-
-
-// ================================
-// Footer Dynamic Year
-// ================================
-
-
-const footer =
-document.querySelector("footer p");
-
-
-
-if(footer){
-
-
-footer.innerHTML =
-`© ${new Date().getFullYear()} JAIPRIJITHA N | Data Analyst Portfolio`;
-
-
-}
-
-
-
-
-
-// ================================
+// ======================================
 // Console Message
-// ================================
+// ======================================
 
-
-console.log(
-"JAIPRIJITHA Portfolio Loaded Successfully 🚀"
-);
+console.log("Portfolio Loaded Successfully 🚀");
