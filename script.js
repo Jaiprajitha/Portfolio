@@ -86,7 +86,7 @@ console.log("Portfolio Loaded Successfully!");
 // job title typing effect
 // ================================
 
-const text = "Full Stack Java Developer";
+const text = "Data Analyst";
 const typing = document.getElementById("typing");
 
 let index = 0;
