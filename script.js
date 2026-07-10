@@ -1,68 +1,77 @@
-/* =========================
-   Portfolio JavaScript
-   Jaiprijitha N
-========================= */
+// ================================
+// Portfolio JavaScript
+// ================================
 
+// Select Elements
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+const navItems = document.querySelectorAll(".nav-links a");
 
-/* =========================
-   Mobile Navigation Toggle
-========================= */
+// ================================
+// Open / Close Mobile Menu
+// ================================
 
-const menuBtn = document.querySelector(".menu-btn");
-const navMenu = document.querySelector(".nav-links");
+menuToggle.addEventListener("click", () => {
 
-if (menuBtn && navMenu) {
+    navLinks.classList.toggle("active");
 
-    menuBtn.addEventListener("click", () => {
+    if (navLinks.classList.contains("active")) {
+        menuToggle.innerHTML = "✕";
+    } else {
+        menuToggle.innerHTML = "☰";
+    }
 
-        navMenu.classList.toggle("active");
+});
 
-    });
+// ================================
+// Close Menu After Clicking a Link
+// ================================
 
-}
-
-
-/* =========================
-   Close Mobile Menu
-========================= */
-
-const navLinks = document.querySelectorAll(".nav-links a");
-
-navLinks.forEach(link => {
+navItems.forEach(link => {
 
     link.addEventListener("click", () => {
 
-        if(navMenu.classList.contains("active")){
-
-            navMenu.classList.remove("active");
-
-        }
+        navLinks.classList.remove("active");
+        menuToggle.innerHTML = "☰";
 
     });
 
 });
 
+// ================================
+// Close Menu When Clicking Outside
+// ================================
 
-/* =========================
-   Smooth Scrolling
-========================= */
+document.addEventListener("click", (event) => {
 
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
+    const isClickInsideNav = navLinks.contains(event.target);
+    const isClickOnMenu = menuToggle.contains(event.target);
 
-    anchor.addEventListener("click", function(event){
+    if (!isClickInsideNav && !isClickOnMenu) {
 
-        event.preventDefault();
+        navLinks.classList.remove("active");
+        menuToggle.innerHTML = "☰";
 
-        const section = document.querySelector(
-            this.getAttribute("href")
-        );
+    }
 
-        if(section){
+});
 
-            section.scrollIntoView({
+// ================================
+// Smooth Scroll
+// ================================
 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+            target.scrollIntoView({
                 behavior: "smooth"
-
             });
 
         }
@@ -71,368 +80,83 @@ document.querySelectorAll("a[href^='#']").forEach(anchor => {
 
 });
 
+console.log("Portfolio Loaded Successfully!");
 
-/* =========================
-   Sticky Header
-========================= */
+// ================================
+// job title typing effect
+// ================================
 
-const header = document.querySelector("header");
+const text = "Full Stack Java Developer";
+const typing = document.getElementById("typing");
 
-window.addEventListener("scroll", () => {
-
-    if(window.scrollY > 80){
-
-        header.classList.add("sticky");
-
-    }
-    else{
-
-        header.classList.remove("sticky");
-
-    }
-
-});
-
-
-/* =========================
-   Typing Effect
-========================= */
-
-const text = [
-    "AI ML Engineer",
-    "Data Analyst",
-    "IoT Research Analyst"
-];
-
-let textIndex = 0;
-let charIndex = 0;
-
-const typingElement = document.querySelector(".typing");
-
+let index = 0;
 
 function typeEffect(){
 
-    if(typingElement){
-
-        if(charIndex < text[textIndex].length){
-
-            typingElement.innerHTML += 
-            text[textIndex].charAt(charIndex);
-
-            charIndex++;
-
-            setTimeout(typeEffect,100);
-
-        }
-
-        else{
-
-            setTimeout(eraseEffect,1500);
-
-        }
-
+    if(index < text.length){
+        typing.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect,100);
     }
-
 }
+typeEffect();
 
+window.addEventListener("scroll",()=>{
 
-function eraseEffect(){
+    const totalHeight=document.documentElement.scrollHeight-window.innerHeight;
 
-    if(charIndex > 0){
+    const progress=(window.scrollY/totalHeight)*100;
 
-        typingElement.innerHTML =
-        text[textIndex].substring(0,charIndex-1);
-
-        charIndex--;
-
-        setTimeout(eraseEffect,50);
-
-    }
-
-    else{
-
-        textIndex++;
-
-        if(textIndex >= text.length){
-
-            textIndex = 0;
-
-        }
-
-        setTimeout(typeEffect,500);
-
-    }
-
-}
-
-
-document.addEventListener(
-    "DOMContentLoaded",
-    typeEffect
-);
- 
-/* =========================
-   Scroll Reveal Animation
-========================= */
-
-const revealElements = document.querySelectorAll(
-    ".project-card, .experience-card, .skill-card, .certificate-card"
-);
-
-
-const revealObserver = new IntersectionObserver(
-
-    (entries) => {
-
-        entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-
-                entry.target.classList.add("show");
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.15
-    }
-
-);
-
-
-revealElements.forEach(element => {
-
-    revealObserver.observe(element);
+    document.getElementById("progress-bar").style.width=progress+"%";
 
 });
 
+/* fade in effect for elements with class "fade" */
 
+const fadeElements=document.querySelectorAll(".fade");
 
-/* =========================
-   Active Navigation Highlight
-========================= */
+window.addEventListener("scroll",()=>{
 
-const sections = document.querySelectorAll("section");
-const navItems = document.querySelectorAll(".nav-links a");
+    fadeElements.forEach(element=>{
 
+        const position=element.getBoundingClientRect().top;
 
-window.addEventListener("scroll", () => {
+        const screenHeight=window.innerHeight;
 
+        if(position<screenHeight-100){
 
-    let current = "";
-
-
-    sections.forEach(section => {
-
-
-        const sectionTop = section.offsetTop - 150;
-
-        const sectionHeight = section.clientHeight;
-
-
-        if(window.scrollY >= sectionTop &&
-           window.scrollY < sectionTop + sectionHeight){
-
-            current = section.getAttribute("id");
+            element.classList.add("show");
 
         }
 
     });
 
+});
 
+emailjs.init("9QF9j-sJ8HgXwVVSF");
 
-    navItems.forEach(link => {
+const form = document.getElementById("contact-form");
 
+form.addEventListener("submit", function(e){
 
-        link.classList.remove("active");
+    e.preventDefault();
 
+    emailjs.sendForm(
+        "service_g6v935l",
+        "template_0nwv5ld",
+        this
+    ).then(function(){
 
-        if(link.getAttribute("href") === "#" + current){
+        alert("Message Sent Successfully!");
 
-            link.classList.add("active");
+        form.reset();
 
-        }
+    }).catch(function(error){
 
+        alert("Failed to Send Message");
+
+        console.log(error);
 
     });
 
-
 });
-
-
-
-/* =========================
-   Scroll To Top Button
-========================= */
-
-
-const topButton = document.createElement("button");
-
-topButton.innerHTML = "↑";
-
-topButton.className = "top-btn";
-
-document.body.appendChild(topButton);
-
-
-
-window.addEventListener("scroll", () => {
-
-
-    if(window.scrollY > 400){
-
-        topButton.style.display = "block";
-
-    }
-
-    else{
-
-        topButton.style.display = "none";
-
-    }
-
-
-});
-
-
-
-topButton.addEventListener("click", () => {
-
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-
-});
-
-
-
-/* =========================
-   Download Resume Button
-========================= */
-
-
-const resumeBtn = document.querySelector(".resume-btn");
-
-
-if(resumeBtn){
-
-
-    resumeBtn.addEventListener("click",()=>{
-
-
-        alert(
-            "Resume download started!"
-        );
-
-
-    });
-
-
-}
-
-
-
-/* =========================
-   Current Year Footer
-========================= */
-
-
-const footerYear = document.querySelector("#year");
-
-
-if(footerYear){
-
-
-    footerYear.textContent =
-    new Date().getFullYear();
-
-
-}
-
-
-
-/* =========================
-   Contact Form Validation
-========================= */
-
-
-const contactForm = document.querySelector("#contact-form");
-
-
-if(contactForm){
-
-
-contactForm.addEventListener("submit",(event)=>{
-
-
-    event.preventDefault();
-
-
-    const name =
-    document.querySelector("#name").value;
-
-
-    const email =
-    document.querySelector("#email").value;
-
-
-    const message =
-    document.querySelector("#message").value;
-
-
-
-    if(
-        name === "" ||
-        email === "" ||
-        message === ""
-    ){
-
-        alert(
-            "Please fill all fields"
-        );
-
-    }
-
-    else{
-
-        alert(
-            "Message sent successfully!"
-        );
-
-
-        contactForm.reset();
-
-    }
-
-
-});
-
-
-}
-
-
-
-/* =========================
-   Page Loading Animation
-========================= */
-
-
-window.addEventListener(
-    "load",
-    ()=>{
-
-        document.body.classList.add(
-            "loaded"
-        );
-
-    }
-);
