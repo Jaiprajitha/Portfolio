@@ -1,186 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jaiprijitha | Data Analyst</title>
+    <title>Lokesh K | Portfolio</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
 </head>
 
 <body>
 
-<div class="container">
+    <div id="progress-bar"></div>
 
-    <!-- LEFT SIDE -->
+    <!-- ================= NAVBAR ================= -->
 
-    <div class="left">
+    <nav>
 
-        <div class="content">
+        <div class="logo">Lokesh K</div>
 
-            <h3>Hello, I'm</h3>
+        <div class="menu-toggle" id="menu-toggle">
+            ☰
+        </div>
 
-            <h1>JAIPRIJITHA N</h1>
+        <ul class="nav-links" id="nav-links">
 
-            <h2>Data Analyst</h2>
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#skills">Skills</a></li>
+
+            <li><a href="#projects">Projects</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- ================= HOME ================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-text">
+
+            <h1>Hi, I'm Lokesh K</h1>
+
+            <h2 id="typing"></h2>
 
             <p>
-                Aspiring Data Analyst with strong knowledge in Artificial Intelligence,
-                Machine Learning, SQL, Python and Data Visualization.
-                Passionate about transforming raw data into meaningful business insights.
+                Computer Science Engineering Graduate passionate about
+                Full Stack Development, Java, Machine Learning,
+                and Backend Development.
             </p>
 
             <div class="buttons">
 
-                <a href="#about">About Me</a>
+                <a href="#projects" class="btn">View Projects</a>
 
-                <a href="#projects">Projects</a>
+                <a href="#contact" class="btn">Contact Me</a>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
+    <!-- ================= ABOUT ================= -->
 
-    <!-- RIGHT SIDE -->
+    <section id="about" class="about">
 
-    <div class="right">
+        <h2>About Me</h2>
 
-        <section id="about">
+        <div class="about-container">
 
-            <h2>About Me</h2>
+            <div class="about-text">
 
-            <p>
-                I recently completed my Bachelor's degree in Artificial Intelligence
-                and Machine Learning from Saveetha University with a CGPA of 8.78.
-                My interests include Data Analytics, SQL, Python, Machine Learning,
-                Power BI, Tableau, and Data Visualization. I enjoy solving business
-                problems using data-driven approaches and continuously improving my
-                analytical skills.
-            </p>
+                <p>
+                    I'm Lokesh, a Computer Science Engineering graduate
+                    passionate about Full Stack Development,
+                    Machine Learning, REST APIs and Web Development.
+                </p>
 
-        </section>
-
-        <section>
-
-            <h2>Education</h2>
-
-            <div class="card">
-
-                <h3>B.Tech - Artificial Intelligence & Machine Learning</h3>
-
-                <p>SIMATS - Saveetha University</p>
-
-                <span>2021 - 2025 | CGPA : 8.78</span>
+                <p>
+                    I have experience with Java, Python, Spring Boot,
+                    Django, React, MongoDB and MySQL.
+                    I also participated in Smart India Hackathon 2024.
+                </p>
 
             </div>
 
-        </section>
+            <div class="info-box">
 
-        <section>
+                <h3>Education</h3>
 
-            <h2>Skills</h2>
+                <p>B.E Computer Science Engineering</p>
 
-            <div class="skills">
+                <p>Saveetha Engineering College</p>
 
+            </div>
+
+            <div class="info-box">
+
+                <h3>Experience</h3>
+
+                <p>UI/UX Design Intern</p>
+
+                <p>Full Stack Java Intern</p>
+
+            </div>
+
+            <div class="info-box">
+
+                <h3>Location</h3>
+
+                <p>Chennai, Tamil Nadu</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+
+    <section id="skills" class="skills">
+
+        <h2>My Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <i class="devicon-java-plain colored"></i>
+                <span>Java</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="devicon-python-plain colored"></i>
                 <span>Python</span>
-                <span>SQL</span>
-                <span>Power BI</span>
-                <span>Excel</span>
-                <span>Tableau</span>
-                <span>Pandas</span>
-                <span>NumPy</span>
-                <span>Matplotlib</span>
-                <span>Machine Learning</span>
-                <span>EDA</span>
-                <span>Statistics</span>
-
             </div>
 
-        </section>
+            <div class="skill-card">
+                <i class="devicon-c-plain colored"></i>
+                <span>C</span>
+            </div>
 
-        <section id="projects">
+            <div class="skill-card">
+                <i class="devicon-cplusplus-plain colored"></i>
+                <span>C++</span>
+            </div>
 
-            <h2>Projects</h2>
+            <div class="skill-card">
+                <i class="devicon-html5-plain colored"></i>
+                <span>HTML</span>
+            </div>
 
-            <div class="card">
+            <div class="skill-card">
+                <i class="devicon-css3-plain colored"></i>
+                <span>CSS</span>
+            </div>
 
-                <h3>Underwater Mine Detection</h3>
+            <div class="skill-card">
+                <i class="devicon-javascript-plain colored"></i>
+                <span>JavaScript</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="devicon-react-original colored"></i>
+                <span>React</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="devicon-django-plain"></i>
+                <span>Django</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="devicon-spring-plain colored"></i>
+                <span>Spring Boot</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="devicon-mongodb-plain colored"></i>
+                <span>MongoDB</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="devicon-mysql-plain colored"></i>
+                <span>MySQL</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="devicon-git-plain colored"></i>
+                <span>Git</span>
+            </div>
+
+            <div class="skill-card">
+                <i class="devicon-github-original"></i>
+                <span>GitHub</span>
+            </div>
+
+        </div>
+
+    </section>
+
+        <!-- ================= PROJECTS ================= -->
+
+    <section id="projects" class="projects">
+
+        <h2>My Projects</h2>
+
+        <div class="project-container">
+
+            <!-- Project 1 -->
+
+            <div class="project-card">
+
+                <h3>Geolocation Attendance System</h3>
 
                 <p>
-                    Built a machine learning model to classify underwater mines
-                    using sonar signals with Random Forest, SVM, Logistic Regression
-                    and Gradient Boosting.
+                    GPS-based attendance system using Django REST Framework,
+                    Flutter and MongoDB to eliminate proxy attendance.
                 </p>
+
+                <h4>Technologies</h4>
+
+                <div class="tech">
+
+                    <span>Django</span>
+                    <span>Flutter</span>
+                    <span>MongoDB</span>
+                    <span>REST API</span>
+
+                </div>
+
+                <div class="project-buttons">
+
+                    <a href="https://github.com/lokeshkrishana"
+                        target="_blank"
+                        class="github">
+                        GitHub
+                    </a>
+
+                </div>
 
             </div>
 
-            <div class="card">
+            <!-- Project 2 -->
 
-                <h3>IoT Wireless Iron Box</h3>
+            <div class="project-card">
+
+                <h3>Health Risk Analysis</h3>
 
                 <p>
-                    Developed an IoT-enabled smart iron box to monitor temperature
-                    and improve energy efficiency.
+                    Machine Learning model using Decision Tree and
+                    Logistic Regression for predicting health risks.
                 </p>
+
+                <h4>Technologies</h4>
+
+                <div class="tech">
+
+                    <span>Python</span>
+                    <span>Scikit-Learn</span>
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+
+                </div>
+
+                <div class="project-buttons">
+
+                    <a href="https://github.com/lokeshkrishana"
+                        target="_blank"
+                        class="github">
+                        GitHub
+                    </a>
+
+                </div>
 
             </div>
 
-            <div class="card">
+        </div>
 
-                <h3>Lung Cancer Prediction</h3>
+    </section>
 
-                <p>
-                    Designed a healthcare prediction model using Machine Learning
-                    algorithms with high accuracy.
-                </p>
+    <!-- ================= CONTACT ================= -->
+
+    <section id="contact" class="contact">
+
+        <h2>Contact Me</h2>
+
+        <div class="contact-container">
+
+            <!-- Contact Information -->
+
+            <div class="contact-info">
+
+                <div class="info">
+                    <i class="fas fa-envelope"></i>
+                    <span>lokeshloke2411@gmail.com</span>
+                </div>
+
+                <div class="info">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 93427 51606</span>
+                </div>
+
+                <div class="info">
+                    <i class="fas fa-location-dot"></i>
+                    <span>Chennai, Tamil Nadu</span>
+                </div>
+
+                <div class="info">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/k-lokesh-601822256/"
+                        target="_blank">
+                        LinkedIn
+                    </a>
+                </div>
+
+                <div class="info">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/lokeshkrishana"
+                        target="_blank">
+                        GitHub
+                    </a>
+                </div>
 
             </div>
 
-        </section>
+            <!-- Contact Form -->
 
-        <section>
+            <form id="contact-form" class="contact-form">
 
-            <h2>Achievements & Certifications</h2>
+                <input
+                    type="text"
+                    name="from_name"
+                    placeholder="Your Name"
+                    required>
 
-            <ul>
+                <input
+                    type="email"
+                    name="from_email"
+                    placeholder="Your Email"
+                    required>
 
-                <li>Oracle Cloud Infrastructure 2024 AI Certified Professional</li>
+                <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    required>
 
-                <li>AWS Cloud Practitioner Essentials</li>
+                <textarea
+                    name="message"
+                    rows="6"
+                    placeholder="Your Message"
+                    required></textarea>
 
-                <li>Flutter Bootcamp - LetsUpgrade</li>
+                <button type="submit">
+                    Send Message
+                </button>
 
-                <li>Python Programming - GUVI</li>
+            </form>
 
-                <li>Academic Topper Award - Saveetha University</li>
+        </div>
 
-            </ul>
+    </section>
 
-        </section>
+    <!-- ================= FOOTER ================= -->
 
-        <section>
+    <footer>
 
-            <h2>Contact</h2>
+        <p>
+            © 2026 Lokesh K. All Rights Reserved.
+        </p>
 
-            <p><strong>Email :</strong> jaiprijitha@gmail.com</p>
+    </footer>
 
-            <p><strong>Phone :</strong> +91 9363375707</p>
+    <!-- ================= EMAILJS ================= -->
 
-            <p><strong>LinkedIn :</strong> Your LinkedIn Profile</p>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-        </section>
+    <!-- Portfolio JS -->
 
-    </div>
-
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
