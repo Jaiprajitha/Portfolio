@@ -1,101 +1,66 @@
-/* ===================================
-   GOOGLE FONT
-=================================== */
+/* ===============================
+   Google Font
+================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
-
-/* ===================================
-   RESET
-=================================== */
-
+/* ===============================
+   Reset
+================================= */
 
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
     font-family:'Poppins',sans-serif;
-
 }
-
-
 
 html{
-
     scroll-behavior:smooth;
-
 }
-
-
 
 body{
-
     background:#0f172a;
-
-    color:white;
-
+    color:#ffffff;
     overflow-x:hidden;
-
+    line-height:1.7;
 }
 
-
-
-/* ===================================
-   SCROLL PROGRESS BAR
-=================================== */
-
+/* ===============================
+   Progress Bar
+================================= */
 
 #progress-bar{
-
     position:fixed;
-
     top:0;
-
     left:0;
-
-    height:5px;
-
     width:0%;
-
+    height:4px;
     background:#38bdf8;
-
     z-index:9999;
-
 }
 
+/* ===============================
+   Container
+================================= */
 
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
 
+/* ===============================
+   Navbar
+================================= */
 
-
-/* ===================================
-   NAVBAR
-=================================== */
-
-
-nav{
-
-    width:100%;
+header{
 
     position:fixed;
-
     top:0;
-
     left:0;
-
+    width:100%;
     z-index:1000;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:20px 80px;
 
     background:#111827;
 
@@ -103,80 +68,85 @@ nav{
 
 }
 
+nav{
 
+    height:80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
 
 .logo{
 
-    font-size:28px;
+    font-size:36px;
 
     font-weight:700;
+
+    color:#ffffff;
+
+}
+
+.logo span{
 
     color:#38bdf8;
 
 }
-
-
 
 .nav-links{
 
     display:flex;
 
-    gap:30px;
+    list-style:none;
+
+    gap:40px;
+
+}
+
+.nav-links li{
 
     list-style:none;
 
 }
 
-
-
 .nav-links a{
 
-    color:white;
+    color:#ffffff;
 
     text-decoration:none;
 
-    font-size:16px;
+    font-size:20px;
+
+    font-weight:500;
 
     transition:.3s;
 
 }
 
-
-
-.nav-links a:hover,
-.nav-links a.active{
+.nav-links a:hover{
 
     color:#38bdf8;
 
 }
 
-
-
-/* ===================================
-   MOBILE MENU
-=================================== */
-
-
 .menu-toggle{
 
     display:none;
+
+    color:white;
 
     font-size:30px;
 
     cursor:pointer;
 
-    color:white;
-
 }
 
-
-
-
-
-/* ===================================
-   HERO SECTION
-=================================== */
-
+/* ===============================
+   Hero Section
+================================= */
 
 .hero{
 
@@ -186,258 +156,63 @@ nav{
 
     align-items:center;
 
-    justify-content:space-between;
-
-    gap:50px;
-
-    padding:120px 80px 80px;
+    padding-top:80px;
 
 }
 
+.hero-content{
 
-
-.hero-text{
-
-    flex:1;
+    max-width:760px;
 
 }
 
+.hero-content h1{
 
-
-.hero-text h1{
-
-    font-size:60px;
+    font-size:78px;
 
     font-weight:700;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.hero-text h2{
-
-    font-size:32px;
-
-    color:#38bdf8;
-
-    min-height:45px;
 
     margin-bottom:20px;
 
 }
 
+.hero-content h1 span{
 
-
-.hero-text p{
-
-    max-width:600px;
-
-    font-size:18px;
-
-    line-height:1.8;
-
-    color:#cbd5e1;
-
-    margin-bottom:35px;
+    color:#ffffff;
 
 }
 
-
-
-
-
-/* ===================================
-   BUTTONS
-=================================== */
-
-
-.buttons{
-
-    display:flex;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-
-
-
-.btn{
-
-    padding:14px 30px;
-
-    background:#38bdf8;
-
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:8px;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-
-
-.btn:hover{
-
-    background:#0284c7;
-
-    transform:translateY(-3px);
-
-}
-
-
-
-.btn2{
-
-    background:transparent;
-
-    border:2px solid #38bdf8;
-
-}
-
-
-
-
-
-/* ===================================
-   HERO IMAGE
-=================================== */
-
-
-.hero-image{
-
-    flex:1;
-
-    display:flex;
-
-    justify-content:center;
-
-}
-
-
-
-.hero-image img{
-
-    width:350px;
-
-    height:350px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:6px solid #38bdf8;
-
-    box-shadow:
-    0 10px 30px rgba(56,189,248,.4);
-
-    animation:float 3s infinite ease-in-out;
-
-}
-
-
-
-@keyframes float{
-
-
-0%{
-
-transform:translateY(0);
-
-}
-
-
-50%{
-
-transform:translateY(-15px);
-
-}
-
-
-100%{
-
-transform:translateY(0);
-
-}
-
-
-}
-
-/* ===================================
-   ABOUT SECTION
-=================================== */
-
-
-.about{
-
-    padding:100px 80px;
-
-    background:#111827;
-
-}
-
-
-
-.about h2,
-.skills h2,
-.projects h2,
-.contact h2{
-
-    text-align:center;
+.hero-content h2{
 
     font-size:42px;
 
     color:#38bdf8;
 
-    margin-bottom:60px;
+    margin-bottom:30px;
+
+    min-height:55px;
 
 }
 
+.hero-content p{
 
+    font-size:24px;
 
-.about h2::after,
-.skills h2::after,
-.projects h2::after,
-.contact h2::after{
+    color:#d1d5db;
 
-    content:"";
+    max-width:720px;
 
-    display:block;
-
-    width:80px;
-
-    height:4px;
-
-    background:#38bdf8;
-
-    margin:15px auto;
-
-    border-radius:5px;
+    margin-bottom:50px;
 
 }
 
+/* ===============================
+   Hero Buttons
+================================= */
 
-
-
-
-/* ===================================
-   ABOUT CARDS
-=================================== */
-
-
-.about-container{
+.hero-buttons{
 
     display:flex;
-
-    justify-content:center;
 
     gap:30px;
 
@@ -445,306 +220,265 @@ transform:translateY(0);
 
 }
 
+.btn{
 
+    display:inline-block;
 
-.info-box{
+    padding:18px 40px;
 
-    width:300px;
+    background:#38bdf8;
 
-    padding:30px;
+    color:white;
 
-    background:#1e293b;
+    text-decoration:none;
 
-    border-radius:15px;
+    border-radius:10px;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-5px);
+
+    background:#0ea5e9;
+
+}
+
+.btn-outline{
+
+    background:transparent;
+
+    border:2px solid #38bdf8;
+
+}
+
+.btn-outline:hover{
+
+    background:#38bdf8;
+
+}
+/* ===================================
+   ABOUT SECTION
+=================================== */
+
+.about{
+
+    padding:100px 0;
+
+    background:#111827;
+
+}
+
+.about h2{
 
     text-align:center;
 
-    border:1px solid rgba(255,255,255,.08);
+    font-size:48px;
 
-    transition:.4s;
-
-}
-
-
-
-.info-box:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:
-    0 15px 35px rgba(56,189,248,.35);
-
-}
-
-
-
-.info-box i{
-
-    font-size:55px;
+    margin-bottom:60px;
 
     color:#38bdf8;
 
-    margin-bottom:20px;
-
 }
 
+.about p{
 
+    max-width:900px;
 
-.info-box h3{
+    margin:auto;
 
-    font-size:24px;
+    text-align:center;
 
-    margin-bottom:15px;
+    font-size:20px;
 
-}
+    line-height:1.9;
 
-
-
-.info-box p{
-
-    color:#cbd5e1;
-
-    line-height:1.8;
-
-    font-size:15px;
+    color:#d1d5db;
 
 }
-
-
-
 
 
 /* ===================================
    SKILLS SECTION
 =================================== */
 
-
 .skills{
 
-    padding:100px 80px;
+    padding:100px 0;
 
     background:#0f172a;
 
 }
 
+.skills h2{
 
+    text-align:center;
 
+    font-size:48px;
 
+    margin-bottom:60px;
 
-.skills-container{
+    color:#38bdf8;
 
-    display:flex;
+}
 
-    justify-content:center;
+.skills-grid{
 
-    flex-wrap:wrap;
+    display:grid;
 
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:30px;
 
 }
 
 
-
-
-
-/* Skill Card */
-
+/* ===================================
+   SKILL CARD
+=================================== */
 
 .skill-card{
 
-    width:170px;
-
-    height:170px;
-
     background:#1e293b;
 
-    border-radius:18px;
+    padding:35px 20px;
 
-    display:flex;
+    border-radius:15px;
 
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
+    text-align:center;
 
     transition:.4s;
+
+    cursor:pointer;
 
     border:1px solid rgba(255,255,255,.08);
 
 }
 
-
-
-
-
 .skill-card:hover{
 
-    transform:translateY(-10px) scale(1.05);
+    transform:translateY(-12px);
 
-    background:#38bdf8;
+    background:#233554;
 
-    box-shadow:
-    0 15px 35px rgba(56,189,248,.4);
+    box-shadow:0 15px 30px rgba(56,189,248,.30);
 
 }
-
-
-
-
 
 .skill-card i{
 
     font-size:60px;
 
+    color:#38bdf8;
+
     margin-bottom:20px;
 
 }
 
+.skill-card h3{
 
-
-
-
-.skill-card span{
-
-    font-size:18px;
+    font-size:22px;
 
     font-weight:600;
-
-}
-
-
-
-
-
-/* ===================================
-   FADE ANIMATION
-=================================== */
-
-
-.fade{
-
-    opacity:0;
-
-    transform:translateY(40px);
-
-    transition:1s;
-
-}
-
-
-
-.fade.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-
-/* ===================================
-   PROJECT SECTION
-=================================== */
-
-
-.projects{
-
-    padding:100px 80px;
-
-    background:#111827;
-
-}
-
-
-
-.project-container{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
-
-    gap:35px;
-
-}
-
-
-
-
-
-.project-card{
-
-    background:#1e293b;
-
-    border-radius:18px;
-
-    padding:25px;
-
-    transition:.4s;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.3);
-
-}
-
-
-
-.project-card:hover{
-
-    transform:translateY(-12px);
-
-    box-shadow:
-    0 20px 40px rgba(56,189,248,.35);
-
-}
-
-
-
-
-
-.project-card h3{
-
-    color:#38bdf8;
-
-    font-size:24px;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.project-card h4{
-
-    margin-top:20px;
-
-    margin-bottom:10px;
 
     color:white;
 
 }
 
 
+/* ===================================
+   PROJECTS SECTION
+=================================== */
 
-.project-card p{
+.projects{
 
-    color:#cbd5e1;
+    padding:100px 0;
 
-    line-height:1.7;
+    background:#111827;
+
+}
+
+.projects h2{
+
+    text-align:center;
+
+    font-size:48px;
+
+    margin-bottom:60px;
+
+    color:#38bdf8;
+
+}
+
+.project-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+
+    gap:35px;
 
 }
 
 
+/* ===================================
+   PROJECT CARD
+=================================== */
+
+.project-card{
+
+    background:#1e293b;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    transition:.4s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 35px rgba(56,189,248,.35);
+
+}
+
+.project-card h3{
+
+    color:#38bdf8;
+
+    font-size:28px;
+
+    margin-bottom:20px;
+
+}
+
+.project-card p{
+
+    color:#d1d5db;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
 
 
+/* ===================================
+   TECHNOLOGY TAGS
+=================================== */
 
-/* Technology Tags */
-
-
-.tech{
+.tech-stack{
 
     display:flex;
 
@@ -752,89 +486,127 @@ transform:translateY(0);
 
     gap:10px;
 
-    margin-top:15px;
-
 }
 
-
-
-.tech span{
+.tech-stack span{
 
     background:#38bdf8;
 
     color:white;
 
-    padding:8px 15px;
+    padding:8px 18px;
 
     border-radius:30px;
 
-    font-size:14px;
+    font-size:15px;
+
+    font-weight:500;
 
 }
+/* ===================================
+   CERTIFICATIONS
+=================================== */
 
+.certifications{
 
-
-
-
-/* Project Button */
-
-
-.project-buttons{
-
-    margin-top:20px;
-
-}
-
-
-
-.project-buttons a{
-
-    display:block;
-
-    text-align:center;
-
-    padding:12px;
-
-    border-radius:8px;
-
-    text-decoration:none;
-
-    color:white;
+    padding:100px 0;
 
     background:#0f172a;
 
+}
+
+.certifications h2{
+
+    text-align:center;
+
+    font-size:48px;
+
+    color:#38bdf8;
+
+    margin-bottom:60px;
+
+}
+
+.certificate-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+
+}
+
+.certificate{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:#1e293b;
+
+    padding:25px;
+
+    border-radius:15px;
+
     transition:.3s;
 
-}
-
-
-
-.project-buttons a:hover{
-
-    background:#38bdf8;
+    border:1px solid rgba(255,255,255,.08);
 
 }
 
+.certificate:hover{
 
+    transform:translateY(-8px);
 
+    box-shadow:0 15px 30px rgba(56,189,248,.3);
+
+}
+
+.certificate i{
+
+    font-size:35px;
+
+    color:#38bdf8;
+
+}
+
+.certificate p{
+
+    color:#d1d5db;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+}
 
 
 /* ===================================
    CONTACT SECTION
 =================================== */
 
-
 .contact{
 
-    padding:100px 80px;
+    padding:100px 0;
 
-    background:#0f172a;
+    background:#111827;
 
 }
 
+.contact h2{
 
+    text-align:center;
 
+    font-size:48px;
 
+    color:#38bdf8;
+
+    margin-bottom:60px;
+
+}
 
 .contact-container{
 
@@ -847,11 +619,9 @@ transform:translateY(0);
 }
 
 
-
-
-
-/* Contact Information */
-
+/* ===================================
+   CONTACT INFO
+=================================== */
 
 .contact-info{
 
@@ -859,15 +629,13 @@ transform:translateY(0);
 
     padding:40px;
 
-    border-radius:20px;
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,.08);
 
 }
 
-
-
-
-
-.info{
+.info-item{
 
     display:flex;
 
@@ -875,61 +643,53 @@ transform:translateY(0);
 
     margin-bottom:30px;
 
+    gap:20px;
+
 }
 
+.info-item i{
 
+    width:55px;
 
-
-
-.info i{
-
-    width:60px;
-
-    height:60px;
-
-    background:#38bdf8;
-
-    border-radius:50%;
+    height:55px;
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    font-size:24px;
+    justify-content:center;
 
-    margin-right:20px;
+    background:#38bdf8;
+
+    color:white;
+
+    border-radius:50%;
+
+    font-size:22px;
 
 }
 
+.info-item span,
+.info-item a{
 
-
-
-
-.info span,
-.info a{
-
-    color:#cbd5e1;
+    color:#d1d5db;
 
     text-decoration:none;
 
+    font-size:18px;
+
 }
 
-
-
-.info a:hover{
+.info-item a:hover{
 
     color:#38bdf8;
 
 }
 
 
-
-
-
-/* Contact Form */
-
+/* ===================================
+   CONTACT FORM
+=================================== */
 
 .contact-form{
 
@@ -937,40 +697,45 @@ transform:translateY(0);
 
     padding:40px;
 
-    border-radius:20px;
+    border-radius:15px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    border:1px solid rgba(255,255,255,.08);
 
 }
-
-
-
-
 
 .contact-form input,
 .contact-form textarea{
 
-
     width:100%;
 
-    padding:15px;
+    padding:16px;
 
-    margin-bottom:20px;
-
-    border:none;
-
-    outline:none;
-
-    border-radius:10px;
-
-    background:#334155;
+    background:#0f172a;
 
     color:white;
 
-    font-size:16px;
+    border:1px solid #334155;
 
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
 
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
 
+    color:#94a3b8;
+
+}
 
 .contact-form textarea{
 
@@ -978,24 +743,17 @@ transform:translateY(0);
 
 }
 
-
-
-
-
 .contact-form button{
 
-
-    width:100%;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:10px;
+    padding:16px;
 
     background:#38bdf8;
 
     color:white;
+
+    border:none;
+
+    border-radius:10px;
 
     font-size:18px;
 
@@ -1003,434 +761,393 @@ transform:translateY(0);
 
     transition:.3s;
 
-
 }
-
-
-
-
 
 .contact-form button:hover{
 
-
     background:#0284c7;
 
-    transform:translateY(-3px);
-
-
 }
-
-
-
 
 
 /* ===================================
    FOOTER
 =================================== */
 
-
 footer{
 
-    background:#111827;
+    background:#0b1120;
+
+    padding:25px 0;
 
     text-align:center;
 
-    padding:25px;
-
-    color:white;
-
 }
-
-
 
 footer p{
 
-    color:#cbd5e1;
-
-}
-
-/* ===================================
-   RESPONSIVE DESIGN
-=================================== */
-
-
-@media(max-width:1024px){
-
-
-    nav{
-
-        padding:20px 40px;
-
-    }
-
-
-    .hero{
-
-        padding:120px 40px 60px;
-
-    }
-
-
-    .hero-text h1{
-
-        font-size:45px;
-
-    }
-
-
-    .hero-image img{
-
-        width:300px;
-
-        height:300px;
-
-    }
-
-
-}
-
-
-
-/* ===================================
-   TABLET VIEW
-=================================== */
-
-
-@media(max-width:768px){
-
-
-
-/* Navbar */
-
-
-nav{
-
-    padding:20px;
-
-}
-
-
-
-.menu-toggle{
-
-    display:block;
-
-}
-
-
-
-.nav-links{
-
-
-    position:absolute;
-
-    top:75px;
-
-    right:-100%;
-
-    width:250px;
-
-    background:#111827;
-
-    flex-direction:column;
-
-    text-align:center;
-
-    padding:30px 0;
-
-    transition:.4s;
-
-}
-
-
-
-.nav-links.active{
-
-    right:0;
-
-}
-
-
-
-.nav-links li{
-
-    margin:15px 0;
-
-}
-
-
-
-
-
-/* Hero */
-
-
-.hero{
-
-    flex-direction:column-reverse;
-
-    text-align:center;
-
-    padding:120px 20px 60px;
-
-}
-
-
-
-.hero-text h1{
-
-    font-size:38px;
-
-}
-
-
-
-.hero-text h2{
-
-    font-size:26px;
-
-}
-
-
-
-.hero-text p{
+    color:#94a3b8;
 
     font-size:16px;
 
 }
 
 
+/* ===================================
+   ANIMATIONS
+=================================== */
 
-.buttons{
+.fade{
 
-    justify-content:center;
+    opacity:0;
 
-}
+    transform:translateY(40px);
 
-
-
-.hero-image img{
-
-    width:250px;
-
-    height:250px;
+    transition:all .8s ease;
 
 }
 
+.fade.show{
 
+    opacity:1;
 
-
-
-/* Sections */
-
-
-.about,
-.skills,
-.projects,
-.contact{
-
-    padding:70px 20px;
+    transform:translateY(0);
 
 }
 
-
-
-.about h2,
-.skills h2,
-.projects h2,
-.contact h2{
-
-    font-size:34px;
-
-}
-
-
-
-
-
-/* Skills */
-
-
-.skill-card{
-
-    width:140px;
-
-    height:140px;
-
-}
-
-
-
-.skill-card i{
-
-    font-size:45px;
-
-}
-
-
-
-.skill-card span{
-
-    font-size:15px;
-
-}
-
-
-
-
-
-/* Contact */
-
-
-.contact-container{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
+.skill-card,
+.project-card,
+.certificate,
 .contact-info,
 .contact-form{
 
-    padding:25px;
+    backdrop-filter:blur(8px);
 
 }
+/* ===================================
+   RESPONSIVE DESIGN
+=================================== */
 
+@media (max-width: 992px){
 
+    .hero-content h1{
+        font-size:60px;
+    }
+
+    .hero-content h2{
+        font-size:34px;
+    }
+
+    .hero-content p{
+        font-size:20px;
+    }
+
+    .contact-container{
+        grid-template-columns:1fr;
+    }
 
 }
-
-
-
 
 
 /* ===================================
-   SMALL MOBILE
+   TABLET VIEW
 =================================== */
 
+@media (max-width:768px){
 
-@media(max-width:480px){
+    nav{
 
+        height:70px;
+        padding:0 20px;
 
+    }
 
-.logo{
+    .menu-toggle{
 
-    font-size:22px;
+        display:block;
+
+    }
+
+    .nav-links{
+
+        position:fixed;
+
+        top:70px;
+
+        right:-100%;
+
+        width:260px;
+
+        height:calc(100vh - 70px);
+
+        background:#111827;
+
+        display:flex;
+
+        flex-direction:column;
+
+        justify-content:flex-start;
+
+        align-items:center;
+
+        gap:30px;
+
+        padding-top:40px;
+
+        transition:.4s;
+
+    }
+
+    .nav-links.active{
+
+        right:0;
+
+    }
+
+    .nav-links a{
+
+        font-size:18px;
+
+    }
+
+    .hero{
+
+        padding:120px 20px 60px;
+
+    }
+
+    .hero-content{
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:46px;
+
+    }
+
+    .hero-content h2{
+
+        font-size:28px;
+
+    }
+
+    .hero-content p{
+
+        font-size:18px;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+    }
+
+    .btn{
+
+        padding:14px 28px;
+
+        font-size:18px;
+
+    }
+
+    .about h2,
+    .skills h2,
+    .projects h2,
+    .certifications h2,
+    .contact h2{
+
+        font-size:36px;
+
+    }
+
+    .about p{
+
+        font-size:18px;
+
+    }
+
+    .skills-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .project-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .certificate-list{
+
+        grid-template-columns:1fr;
+
+    }
 
 }
-
-
-
-.hero-text h1{
-
-    font-size:32px;
-
-}
-
-
-
-.hero-image img{
-
-    width:210px;
-
-    height:210px;
-
-}
-
-
-
-.btn{
-
-    width:100%;
-
-    text-align:center;
-
-}
-
-
-
-.skill-card{
-
-    width:120px;
-
-    height:120px;
-
-}
-
-
-
-.skill-card i{
-
-    font-size:38px;
-
-}
-
-
-
-.skill-card span{
-
-    font-size:14px;
-
-}
-
-
-
-.info-box{
-
-    width:100%;
-
-}
-
-
-
-.project-card h3{
-
-    font-size:20px;
-
-}
-
-
-
-}
-
 
 
 /* ===================================
-   EXTRA EFFECTS
+   MOBILE VIEW
 =================================== */
 
+@media (max-width:480px){
 
+    .logo{
 
-.btn:hover,
-.project-card:hover,
-.skill-card:hover,
-.info-box:hover{
+        font-size:26px;
 
-    box-shadow:
-    0 0 25px rgba(56,189,248,.45);
+    }
+
+    .hero-content h1{
+
+        font-size:34px;
+
+    }
+
+    .hero-content h2{
+
+        font-size:22px;
+
+    }
+
+    .hero-content p{
+
+        font-size:16px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+    .skills-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .skill-card{
+
+        padding:25px;
+
+    }
+
+    .project-card{
+
+        padding:20px;
+
+    }
+
+    .contact-form{
+
+        padding:25px;
+
+    }
+
+    .contact-info{
+
+        padding:25px;
+
+    }
 
 }
 
 
+/* ===================================
+   SCROLLBAR
+=================================== */
 
+::-webkit-scrollbar{
 
-.contact-form,
-.contact-info,
-.project-card,
-.skill-card,
-.info-box{
+    width:10px;
 
-    backdrop-filter:blur(10px);
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0f172a;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#38bdf8;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#0ea5e9;
 
 }
 
 
+/* ===================================
+   TEXT SELECTION
+=================================== */
 
 ::selection{
 
     background:#38bdf8;
 
-    color:white;
+    color:#fff;
+
+}
+
+
+/* ===================================
+   SMOOTH HOVER EFFECTS
+=================================== */
+
+.skill-card,
+.project-card,
+.certificate,
+.contact-info,
+.contact-form,
+.btn{
+
+    transition:all .3s ease;
+
+}
+
+.skill-card:hover,
+.project-card:hover,
+.certificate:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+/* ===================================
+   ACTIVE NAVIGATION
+=================================== */
+
+.nav-links a.active{
+
+    color:#38bdf8;
+
+    font-weight:600;
 
 }
